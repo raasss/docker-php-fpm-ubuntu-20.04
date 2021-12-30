@@ -38,7 +38,7 @@ jobs:
             --tag docker.io/raasss/php-fpm-ubuntu-20.04:latest \
             --tag quay.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
             --tag quay.io/raasss/php-fpm-ubuntu-20.04:latest \
-            --platform linux/amd64,linux/arm/v7,linux/arm64 ./images/ubuntu-20.04/php-fpm/
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
       # - name: Save Docker build cache
       #   uses: actions/upload-artifact@v2
       #   with:
