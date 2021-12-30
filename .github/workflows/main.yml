@@ -22,11 +22,11 @@ jobs:
       - name: Build images
         run: |
           docker buildx build \
-            --tag docker.io/raasss/php-fpm:${GITHUB_REF_NAME} \
-            --tag docker.io/raasss/php-fpm:latest \
-            --tag quay.io/raasss/php-fpm:${GITHUB_REF_NAME} \
-            --tag quay.io/raasss/php-fpm:latest \
-            --platform linux/amd64,linux/arm/v7,linux/arm64 ./images/ubuntu-20.04/php-fpm/
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
       - name: Configure login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin docker.io
       - name: Configure login to Quay.io
@@ -34,13 +34,13 @@ jobs:
       - name: Push images
         run: |
           docker buildx build --push \
-            --tag docker.io/raasss/php-fpm:${GITHUB_REF_NAME} \
-            --tag docker.io/raasss/php-fpm:latest \
-            --tag quay.io/raasss/php-fpm:${GITHUB_REF_NAME} \
-            --tag quay.io/raasss/php-fpm:latest \
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 ./images/ubuntu-20.04/php-fpm/
-      - name: Save Docker build cache
-        uses: actions/upload-artifact@v2
-        with:
-          name: docker-cache
-          path: /var/lib/containers
+      # - name: Save Docker build cache
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: docker-cache
+      #     path: /var/lib/containers
