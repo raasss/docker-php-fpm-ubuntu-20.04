@@ -6,6 +6,7 @@ RUN set -e; \
     apt-get dist-upgrade -y; \
     apt-get install -y --no-install-recommends \
         tini \
+        crudini \
         php-fpm \
         php-mysql \
         php-xml \
