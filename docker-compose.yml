@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  php:
+    build: .
+    # cap_add:
+    #   - SYS_PTRACE
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+    environment:
+      - PHP_FPM_INI_1=PHP:memory_limit:141M
