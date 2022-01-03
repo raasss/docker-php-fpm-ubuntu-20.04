@@ -3,8 +3,8 @@ name: latest
 on:
   push:
     tags:
-      - '+.+.+'
-      - '!+ubuntu+'
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '!+-4ubuntu+-[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
