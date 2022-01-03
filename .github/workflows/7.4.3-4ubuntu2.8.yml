@@ -2,7 +2,6 @@ name: PHP-FPM 7.4.3-4ubuntu2.8 on Ubuntu 20.04
 
 on:
   push:
-    branches: [ 7.4.3-4ubuntu2.8 ]
     tags:
       - '7.4.3-4ubuntu2.8-*.*.*'
 
