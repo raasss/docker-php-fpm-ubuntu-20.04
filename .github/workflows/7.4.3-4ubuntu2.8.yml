@@ -2,8 +2,9 @@ name: PHP-FPM on Ubuntu 20.04
 
 on:
   push:
+    branches: [ 7.4.3-4ubuntu2.8 ]
     tags:
-      - '*.*.*'
+      - '7.4.3-4ubuntu2.8-*.*.*'
 
 jobs:
   build:
@@ -23,9 +24,9 @@ jobs:
         run: |
           docker buildx build \
             --tag docker.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
-            --tag docker.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:7.4.3-4ubuntu2.8 \
             --tag quay.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
-            --tag quay.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:7.4.3-4ubuntu2.8 \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
       - name: Configure login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin docker.io
@@ -35,9 +36,9 @@ jobs:
         run: |
           docker buildx build --push \
             --tag docker.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
-            --tag docker.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag docker.io/raasss/php-fpm-ubuntu-20.04:7.4.3-4ubuntu2.8 \
             --tag quay.io/raasss/php-fpm-ubuntu-20.04:${GITHUB_REF_NAME} \
-            --tag quay.io/raasss/php-fpm-ubuntu-20.04:latest \
+            --tag quay.io/raasss/php-fpm-ubuntu-20.04:7.4.3-4ubuntu2.8 \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
       # - name: Save Docker build cache
       #   uses: actions/upload-artifact@v2
