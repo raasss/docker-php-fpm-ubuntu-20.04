@@ -1,9 +1,9 @@
-name: PHP-FPM 7.4.3-4ubuntu2.8
+name: 7.4.3-4ubuntu2.8
 
 on:
   push:
     tags:
-      - '7.4.3-4ubuntu2.8-*.*.*'
+      - '7.4.3-4ubuntu2.8-+.+.+'
 
 jobs:
   build:

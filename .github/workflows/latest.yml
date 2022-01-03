@@ -1,10 +1,10 @@
-name: PHP-FPM latest
+name: latest
 
 on:
   push:
     tags:
-      - '*.*.*'
-      - '!.*ubuntu.*'
+      - '+.+.+'
+      - '!+ubuntu+'
 
 jobs:
   build:
