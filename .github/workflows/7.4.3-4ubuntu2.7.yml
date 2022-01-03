@@ -1,4 +1,4 @@
-name: PHP-FPM on Ubuntu 20.04
+name: PHP-FPM 7.4.3-4ubuntu2.7 on Ubuntu 20.04
 
 on:
   push:
