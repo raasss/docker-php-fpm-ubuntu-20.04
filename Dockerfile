@@ -7,6 +7,7 @@ RUN set -e; \
     apt-get install -y --no-install-recommends \
         tini \
         crudini \
+        php-common \
         php-fpm \
         php-mysql \
         php-xml \
@@ -14,6 +15,10 @@ RUN set -e; \
         php-mbstring \
         php-curl \
         php-zip \
+        php-cli \
+        php-json \
+        php-opcache \
+        php-readline \
         composer \
         less \
         curl; \
