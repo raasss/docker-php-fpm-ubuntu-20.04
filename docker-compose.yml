@@ -1,13 +1,37 @@
 version: '3.5'
 
+networks:
+  private:
+    driver: bridge
+
+
 services:
   php:
     build: .
-    # cap_add:
-    #   - SYS_PTRACE
+    networks:
+      - private
+    ports:
+      - "19000:9000"
     volumes:
       - type: bind
         source: ./src
         target: /var/www/html
+    cap_add:
+      - SYS_PTRACE
     environment:
       - PHP_FPM_INI_1=PHP:memory_limit:141M
+
+  web:
+    image: raasss/apache-ubuntu-20.04:latest
+    networks:
+      - private
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+     - PHP_FPM_SERVER=php
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+        read_only: true
