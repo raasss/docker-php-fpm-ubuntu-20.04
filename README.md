@@ -55,7 +55,7 @@ After a feature is written, please help get it used by improving the documentati
 
 ## Improving the Documentation
 
-The [full image description on Docker Hub](https://hub.docker.com/r/raasss/php-fpm-ubuntu-20.04) is located at  [here](https://github.com/raasss/docker-php-fpm-ubuntu-20.04/blob/main/README.docker.io.md).
+The [full image description on Docker Hub](https://hub.docker.com/r/raasss/php-fpm-ubuntu-20.04) is located at [here](https://github.com/raasss/docker-php-fpm-ubuntu-20.04/blob/main/README.docker.io.md).
 
 To change the documentation, please contribute a [pull request](https://github.com/raasss/docker-php-fpm-ubuntu-20.04/pulls) or [issue](https://github.com/raasss/docker-php-fpm-ubuntu-20.04/issues).
 
