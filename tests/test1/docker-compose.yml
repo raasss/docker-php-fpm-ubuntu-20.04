@@ -4,7 +4,6 @@ networks:
   private:
     driver: bridge
 
-
 services:
   php-fpm:
     build:
