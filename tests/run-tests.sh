@@ -18,17 +18,21 @@ for TESTDIR in $(ls -d test*); do
     cp -f ../../www.conf .
     cp -f ../../php.ini .
 
-    grep -e '^\s*image:\s' docker-compose.yml | awk '{print $2}' |\
-    while read -r I; do
-        docker pull "${I}"
-    done
-
+    docker-compose pull
     docker-compose build
     docker-compose up -d
     DOCKER_HOST_URL="http://$(docker-compose port apache 80)"
 
     while true; do
-        if curl --silent ${DOCKER_HOST_URL}/phpinfo.php | grep 'phpinfo()'; then
+        if [ "$(curl --silent ${DOCKER_HOST_URL}/readiness-probe.html)" == "readiness-probe.html" ]; then
+            break
+        else
+            sleep 1s;
+        fi
+    done
+
+    while true; do
+        if [ "$(curl --silent ${DOCKER_HOST_URL}/readiness-probe.php)" == "readiness-probe.php" ]; then
             break
         else
             sleep 1s;
