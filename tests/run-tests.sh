@@ -18,6 +18,10 @@ for TESTDIR in $(ls -d test*); do
     cp -f ../../www.conf .
     cp -f ../../php.ini .
 
+    grep -e '^\s*image:\s' docker-compose.yml | awk '{print $2}' |\
+    while read -r I; do
+        docker pull "${I}"
+    done
 
     docker-compose build
     docker-compose up -d
