@@ -19,8 +19,11 @@ RUN set -e; \
         php-json \
         php-opcache \
         php-readline \
+        php-imagick \
+        php-intl \
         composer \
         less \
+        vim-nox iproute2 iputils-ping dnsutils \
         curl; \
     curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp; \
     chmod -v 0755 /usr/local/bin/wp; \
