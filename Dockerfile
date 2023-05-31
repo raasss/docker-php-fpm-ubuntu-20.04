@@ -21,6 +21,7 @@ RUN set -e; \
         php-readline \
         php-imagick \
         php-intl \
+        php-tidy \
         composer \
         less \
         vim-nox iproute2 iputils-ping dnsutils \
